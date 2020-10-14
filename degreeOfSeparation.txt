@@ -1,0 +1,54 @@
+Degree of separation:
+=====================
+
+A--> B---> C ---> D
+
+A and D degree of separation is 3
+
+In case of FB it would be billions vertices.
+So simple DFS won't work
+
+so we can reduce the scope. say if degree of sep is <5 return that other wise return high
+Even the reduced scope will take lot of time with simple DFS.
+Like if a user has 1000 friends,
+
+then it will go to   1000 * 1000 * 1000 * 1000 *1000 = 10^15  -> lot of time
+
+So it can be solved by below
+
+Case 1:
+=======
+If stranger is in my friend list
+
+Case 2:
+=======
+If there exists a mutual friend between me and stranger.
+mutual(me,stranger)
+
+Case 3:
+=======
+intersection between friend of friend of me and friend's of x.
+Lets say each user has 1000 friends.
+
+So complexity: 1000*1000  check for 1000friends of stranger = 10^6
+
+Case 4:
+=======
+
+intersection of friend(friend(me)) and friend(friend(stranger))  --> return true
+=10 ^6
+
+boolean intersect(List l1, List l2){
+HashSet
+insert l1 in set
+and check if any from l2 exist in l1
+}
+
+Note:
+=====
+In large scale system the algorithms will be used with constraints.
+
+
+========================================================================================
+High level design
+==================
